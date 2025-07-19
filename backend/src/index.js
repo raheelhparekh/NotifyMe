@@ -5,6 +5,8 @@ import dotenv from "dotenv";
 import app from "./app.js";
 
 import notificationRoutes from "./routes/notification.routes.js";
+import userRoutes from "./routes/user.routes.js";
+import contentRoutes from "./routes/content.routes.js";
 
 dotenv.config({
   path: "./.env",
@@ -19,6 +21,8 @@ app.get("/", (req, res) => {
 });
 
 app.use("/api/v1/notifications", notificationRoutes);
+app.use("/api/v1/users", userRoutes);
+app.use("/api/v1/content", contentRoutes);
 
 const PORT = process.env.PORT || 8000;
 connectDb()

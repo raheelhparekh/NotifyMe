@@ -7,12 +7,26 @@ const notificationSchema = Schema(
       ref: "User",
       required: true,
     },
-    sender: { type: mongoose.Schema.Types.ObjectId, ref: "User" }, // Optional: who triggered it
-    type: { type: String, required: true }, // e.g., 'new_post', 'new_follower', 'content_liked'
-    message: { type: String, required: true },
-    relatedContent: { type: mongoose.Schema.Types.ObjectId, ref: "Content" }, // Optional: if notification relates to content
-    read: { type: Boolean, default: false },
-    createdAt: { type: Date, default: Date.now },
+    sender: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User",
+    },
+    type: {
+      type: String,
+      required: true,
+    }, // e.g., 'new_post', 'new_follower', 'content_liked'
+    message: {
+      type: String,
+      required: true,
+    },
+    relatedContent: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Content",
+    },
+    read: {
+      type: Boolean,
+      default: false,
+    },
   },
   {
     timestamps: true,

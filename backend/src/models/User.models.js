@@ -2,8 +2,11 @@ import mongoose, { Schema } from "mongoose";
 
 const userSchema = new Schema(
   {
-    username: { type: String, required: true, unique: true },
-    // Add other user fields as needed for notification logic (e.g., interests, followers array)
+    username: {
+      type: String,
+      required: true,
+      unique: true,
+    },
     followers: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }], // Users who follow this user
     following: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }], // Users this user follows
   },
