@@ -8,7 +8,7 @@ export const simulateActivity = async ({
 }) => {
   try {
     const response = await axiosInstance.post(
-      "/notifications/simulate-activity",
+      "/api/v1/notifications/simulate-activity",
       {
         activityType,
         actorId,
@@ -33,7 +33,7 @@ export const simulateActivity = async ({
 
 export const getNotifications = async (userId) => {
   try {
-    const response = await axiosInstance.get(`/notifications/${userId}`);
+    const response = await axiosInstance.get(`/api/v1/notifications/${userId}`);
 
     console.log("Response notifications:", response.data);
 
@@ -52,7 +52,7 @@ export const getNotifications = async (userId) => {
 export const markNotificationAsRead = async (notificationId) => {
   try {
     const response = await axiosInstance.patch(
-      `/notifications/${notificationId}/read`,
+      `api/v1/notifications/${notificationId}/read`,
       {},
     );
 
@@ -72,7 +72,7 @@ export const markNotificationAsRead = async (notificationId) => {
 
 export const createTestUser = async (username) => {
   try {
-    const response = await axiosInstance.post("/users/create-test-user", {
+    const response = await axiosInstance.post("/api/v1/users/create-test-user", {
       username,
     });
     console.log("response", response.data);
@@ -90,7 +90,7 @@ export const createTestUser = async (username) => {
 
 export const createTestContent = async (authorId, type, title, body) => {
   try {
-    const response = await axiosInstance.post("/content/create-test-content", {
+    const response = await axiosInstance.post("/api/v1/content/create-test-content", {
       authorId,
       type,
       title,
